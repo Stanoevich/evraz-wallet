@@ -1,0 +1,248 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context="com.bitshares.bitshareswallet.SendFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn_send"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/EvrazTitle"
+                    android:text="@string/send" />
+
+                <TextView
+                    style="@style/EvrazTextHeaderViewStyle"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/from" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp">
+
+                    <WebView
+                        android:id="@+id/webViewAvatarFrom"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp" />
+
+                    <EditText
+                        android:id="@+id/editTextFrom"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_toRightOf="@id/webViewAvatarFrom"
+                        android:background="@drawable/btn_default_background"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:inputType="text"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="80dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/beige_color"
+                        android:textSize="@dimen/send_fragment_text_size"
+                        android:textStyle="bold"
+                        tools:text="test124" />
+
+                    <TextView
+                        android:id="@+id/textViewFromId"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/editTextFrom"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginRight="8dp"
+                        android:text="#22222"
+                        android:textColor="@color/beige_color"
+                        android:textSize="@dimen/send_fragment_text_size" />
+
+                </RelativeLayout>
+
+
+                <TextView
+                    style="@style/EvrazTextHeaderViewStyle"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/to" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp">
+
+                    <WebView
+                        android:id="@+id/webViewAvatarTo"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp" />
+
+                    <EditText
+                        android:id="@+id/editTextTo"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_toRightOf="@+id/webViewAvatarTo"
+                        android:background="@drawable/btn_default_background"
+                        android:inputType="text"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="80dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/beige_color"
+                        android:textSize="@dimen/send_fragment_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textViewToId"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/editTextTo"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginRight="8dp"
+                        android:text="#"
+                        android:textColor="@color/beige_color"
+                        android:textSize="@dimen/send_fragment_text_size" />
+
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/EvrazTextHeaderViewStyle"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/count" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_default_background"
+                    android:orientation="horizontal">
+
+
+                    <EditText
+                        android:id="@+id/editTextQuantity"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:inputType="numberDecimal"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:text="1"
+                        android:textColor="@color/beige_color"
+                        android:textSize="@dimen/send_fragment_text_size" />
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinner_unit"
+                        android:layout_width="65dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:entries="@array/bts_unit"
+                        android:textColor="@color/beige_color"
+                        android:textSize="@dimen/send_fragment_text_size"
+                        app:backgroundTint="@color/beige_color" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/EvrazTextHeaderViewStyle"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/note" />
+
+                <EditText
+                    android:id="@+id/editTextMemo"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_default_background"
+                    android:inputType="text"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:textColor="@color/beige_color"
+                    android:textSize="@dimen/send_fragment_text_size" />
+
+                <TextView
+                    style="@style/EvrazTextHeaderViewStyle"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/comission" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/btn_default_background"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <EditText
+                        android:id="@+id/editTextFee"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="44dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:text=""
+                        android:textColor="@color/beige_color"
+                        android:textSize="@dimen/send_fragment_text_size" />
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinner_fee_unit"
+                        android:layout_width="65dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+
+                        android:textSize="@dimen/send_fragment_text_size"
+                        app:backgroundTint="@color/beige_color" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <TextView
+            android:id="@+id/btn_send"
+            style="@style/EvrazTextViewButton"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/btn_green_background"
+            android:text="@string/send"
+            android:textColor="@android:color/black" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>

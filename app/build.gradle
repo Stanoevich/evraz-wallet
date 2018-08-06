@@ -1,0 +1,149 @@
+// Manifest version information!
+def versionMajor = 0
+def versionMinor = 3
+def versionPatch = 3
+def versionBuild = 1
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+/*if (file('signing.gradle').exists()) {
+    apply from: 'signing.gradle'
+}*/
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+    maven { url "https://jitpack.io" }
+    google()
+}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "org.evrazcoin.evrazwallet"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+        setProperty("archivesBaseName", "evrazwallet-"  + versionName)
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation":
+                                     "$projectDir/schemas".toString()]
+            }
+        }
+    }
+  /*  signingConfigs {
+        release {
+            storeFile file(project.signing.storeFilePath)
+            storePassword project.signing.storePassword
+            keyAlias project.signing.keyAlias
+            keyPassword project.signing.keyPassword
+        }
+    }*/
+    buildTypes {
+        release {
+//            signingConfig signingConfigs.release
+            minifyEnabled true
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles 'proguard-rules.pro'
+        }
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix '-DEBUG'
+            ext.enableCrashlytics = false
+        }
+    }
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+    }
+    lintOptions {
+        disable 'MissingTranslation'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'license/LICENSE.dom-documentation.txt'
+        exclude 'license/LICENSE.dom-software.txt'
+        exclude 'license/README.dom.txt'
+        exclude 'license/README.sax.txt'
+        exclude 'license/NOTICE'
+        exclude 'license/LICENSE'
+        exclude 'license/*'
+
+        exclude 'lib/x86_64/darwin/libscrypt.dylib'
+        exclude 'lib/x86_64/freebsd/libscrypt.so'
+        exclude 'lib/x86_64/linux/libscrypt.so'
+    }
+    dexOptions {
+        javaMaxHeapSize "6144m"
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
+    compile 'com.android.support:multidex:1.0.2'
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:support-v4:26.1.0'
+    compile 'com.android.support:preference-v7:26.1.0'
+    compile 'com.android.support:preference-v14:26.1.0'
+    compile 'com.android.support:design:26.1.0'
+    compile 'com.google.guava:guava:23.0-android'
+    compile 'com.madgag.spongycastle:core:1.56.0.0'
+    compile 'com.madgag.spongycastle:prov:1.56.0.0'
+    compile 'com.madgag.spongycastle:pkix:1.51.0.0'
+    compile 'com.madgag.spongycastle:pg:1.51.0.0'
+    compile 'org.slf4j:slf4j-android:1.7.25'
+    compile 'com.google.protobuf:protobuf-java:3.4.0'
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'com.kaopiz:kprogresshud:1.0.2'
+    compile 'com.wang.avi:library:2.1.3'
+    compile 'com.google.firebase:firebase-core:11.4.2'
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'android.arch.persistence.room:runtime:1.0.0-rc1'
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0-rc1"
+    implementation 'android.arch.lifecycle:extensions:1.0.0-rc1'
+    annotationProcessor "android.arch.lifecycle:compiler:1.0.0-rc1"
+    testCompile 'junit:junit:4.12'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.5'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation project(':graphenej:graphenej')
+
+}
+
+apply plugin: 'com.google.gms.google-services'

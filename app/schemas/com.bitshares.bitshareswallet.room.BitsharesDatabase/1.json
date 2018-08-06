@@ -1,0 +1,313 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "50adca5ce42c2b4860616029d4324041",
+    "entities": [
+      {
+        "tableName": "balance",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `amount` INTEGER NOT NULL, `currency` TEXT, `asset_id` TEXT, `type` INTEGER NOT NULL, `precision` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "amount",
+            "columnName": "amount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "currency",
+            "columnName": "currency",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "asset_id",
+            "columnName": "asset_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "precision",
+            "columnName": "precision",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_balance_asset_id_type",
+            "unique": true,
+            "columnNames": [
+              "asset_id",
+              "type"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_balance_asset_id_type` ON `${TABLE_NAME}` (`asset_id`, `type`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "market_ticker",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `base` TEXT, `quote` TEXT, `latest` REAL, `lowest_ask` REAL, `highest_bid` REAL, `percent_change` TEXT, `base_volume` REAL, `quote_volume` REAL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "marketTicker.base",
+            "columnName": "base",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "marketTicker.quote",
+            "columnName": "quote",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "marketTicker.latest",
+            "columnName": "latest",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "marketTicker.lowest_ask",
+            "columnName": "lowest_ask",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "marketTicker.highest_bid",
+            "columnName": "highest_bid",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "marketTicker.percent_change",
+            "columnName": "percent_change",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "marketTicker.base_volume",
+            "columnName": "base_volume",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "marketTicker.quote_volume",
+            "columnName": "quote_volume",
+            "affinity": "REAL",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_market_ticker_base_quote",
+            "unique": true,
+            "columnNames": [
+              "base",
+              "quote"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_market_ticker_base_quote` ON `${TABLE_NAME}` (`base`, `quote`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "asset_object",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `asset_id` TEXT, `symbol` TEXT, `precision` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "asset_id",
+            "columnName": "asset_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "symbol",
+            "columnName": "symbol",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "precision",
+            "columnName": "precision",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_asset_object_asset_id_symbol",
+            "unique": true,
+            "columnNames": [
+              "asset_id",
+              "symbol"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_asset_object_asset_id_symbol` ON `${TABLE_NAME}` (`asset_id`, `symbol`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "operation_history",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `timestamp` INTEGER NOT NULL, `history_id` TEXT, `op` TEXT, `block_num` INTEGER, `trx_in_block` INTEGER, `op_in_trx` INTEGER, `virtual_op` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "operationHistoryObject.id",
+            "columnName": "history_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "operationHistoryObject.op",
+            "columnName": "op",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "operationHistoryObject.block_num",
+            "columnName": "block_num",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "operationHistoryObject.trx_in_block",
+            "columnName": "trx_in_block",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "operationHistoryObject.op_in_trx",
+            "columnName": "op_in_trx",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "operationHistoryObject.virtual_op",
+            "columnName": "virtual_op",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_operation_history_timestamp_history_id",
+            "unique": true,
+            "columnNames": [
+              "timestamp",
+              "history_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_operation_history_timestamp_history_id` ON `${TABLE_NAME}` (`timestamp`, `history_id`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "account_object",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `account_id` TEXT, `name` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "account_id",
+            "columnName": "account_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_account_object_account_id_name",
+            "unique": true,
+            "columnNames": [
+              "account_id",
+              "name"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_account_object_account_id_name` ON `${TABLE_NAME}` (`account_id`, `name`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"50adca5ce42c2b4860616029d4324041\")"
+    ]
+  }
+}

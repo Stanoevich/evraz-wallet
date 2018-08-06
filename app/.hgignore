@@ -1,0 +1,8 @@
+syntax: glob
+.gradle
+.idea
+build
+*.iml
+local.properties
+crashlytics-build.properties
+com_crashlytics_export_strings.xml

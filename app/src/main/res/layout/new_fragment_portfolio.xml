@@ -1,0 +1,136 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_gray_color"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        style="@style/EvrazTitle"
+        android:layout_width="match_parent"
+        android:background="@android:color/black"
+        android:paddingBottom="24dp"
+        android:paddingTop="24dp"
+        android:text="@string/portfolio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textUSDBalance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/black"
+        android:gravity="right"
+        android:textColor="#f6efcc"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textSize="14sp"
+        tools:text="Всего: 100 USD" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/beige_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/EvrazTextHeaderTableStyle"
+
+            android:text="@string/assets" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/beige_color" />
+
+        <TextView
+            style="@style/EvrazTextHeaderTableStyle"
+            android:text="@string/short_count" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/beige_color" />
+
+        <TextView
+            android:id="@+id/usdRateTitle"
+            style="@style/EvrazTextHeaderTableStyle"
+
+            android:text="@string/usd_rate" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/beige_color" />
+
+        <TextView
+            android:id="@+id/usdCostTitle"
+            style="@style/EvrazTextHeaderTableStyle"
+
+            android:text="@string/usd_cost" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/beige_color" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/EvrazTextHeaderTableStyle"
+                android:visibility="invisible" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/beige_color" />
+
+            <TextView
+                style="@style/EvrazTextHeaderTableStyle"
+                android:visibility="invisible" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/beige_color" />
+
+            <TextView
+                style="@style/EvrazTextHeaderTableStyle"
+                android:visibility="invisible" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/beige_color" />
+
+            <TextView
+                style="@style/EvrazTextHeaderTableStyle"
+                android:visibility="invisible" />
+
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            tools:listitem="@layout/new_recyclerview_item_balances"
+            android:layout_height="match_parent" />
+
+
+    </FrameLayout>
+
+</LinearLayout>

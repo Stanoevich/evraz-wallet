@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/voi_txt_operation"
+        style="@style/EvrazValueTableStyle"
+        android:layout_weight="90"
+        tools:text="@string/assets" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/beige_color" />
+
+    <TextView
+        android:id="@+id/voi_txt_price"
+        style="@style/EvrazValueTableStyle"
+        android:layout_weight="35"
+        tools:text="@string/short_count" />
+
+    <!--<View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/beige_color" />
+
+    <TextView
+        android:id="@+id/voi_txt_price_usd"
+        style="@style/EvrazValueTableStyle"
+        android:layout_weight="60"
+        tools:text="@string/short_count" />-->
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/beige_color" />
+
+    <ImageView
+        android:id="@+id/voi_cacel"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="40"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ic_krestik"
+        tools:text="@string/short_count" />
+
+
+</LinearLayout>

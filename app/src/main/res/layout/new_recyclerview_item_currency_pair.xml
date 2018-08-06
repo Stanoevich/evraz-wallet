@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp">
+
+    <View
+        android:id="@+id/viewSelected"
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:background="@color/background_color"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/imageViewCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="8dp"
+        android:scaleType="center"
+        android:src="@mipmap/create_account" />
+
+    <TextView
+        android:id="@+id/textViewCurrencyPair"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_toLeftOf="@+id/textViewPrice"
+        android:layout_toRightOf="@+id/imageViewCurrency"
+        android:gravity="center_vertical"
+        android:text="BTC : USD"
+        android:textAllCaps="true"
+        android:textColor="@color/beige_color"
+        android:textSize="21sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="3dp"
+        android:layout_toLeftOf="@+id/textView24h"
+
+        android:gravity="center_vertical|right"
+        android:text="N/A"
+        android:textColor="@color/beige_color"
+        android:textSize="21sp" />
+
+    <TextView
+        android:id="@+id/textView24h"
+        android:layout_width="54dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="13dp"
+        android:background="@drawable/oval_green_background"
+        android:gravity="center"
+        android:text="-10%"
+        android:textColor="@android:color/black"
+        android:textSize="12sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/grey" />
+
+
+</RelativeLayout>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context="com.bitshares.bitshareswallet.ImportActivty">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:elevation="0dp"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="0dp"
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="@string/registration"
+            app:titleTextColor="@color/beige_color" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/layoutAccountName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/EvrazTextHeaderViewStyle"
+                        android:text="@string/account_name" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <EditText
+                            android:id="@+id/editTextAccountName"
+                            style="@style/EvrazEditTextStyle"
+                            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-"
+                            android:gravity="center_vertical"
+                            android:inputType="text" />
+
+                        <ImageView
+                            android:id="@+id/imageViewAccountCheck"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/editTextAccountName"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginBottom="12dp"
+                            android:layout_marginRight="12dp"
+                            android:src="@mipmap/check"
+                            android:visibility="invisible" />
+
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/textViewErrorAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/red"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/EvrazTextHeaderViewStyle"
+                    android:text="@string/create_password" />
+
+
+                <EditText
+                    android:id="@+id/editTextPassword"
+                    style="@style/EvrazEditTextStyle"
+                    android:inputType="textPassword" />
+
+                <TextView
+                    android:id="@+id/textViewErrorPasswrod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/red"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/EvrazTextHeaderViewStyle"
+                    android:text="@string/confirm_password" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/editTextPasswordConfirm"
+                        style="@style/EvrazEditTextStyle"
+                        android:inputType="textPassword" />
+
+                    <ImageView
+                        android:id="@+id/imageViewPasswordConfirmCheck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/editTextPasswordConfirm"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginRight="12dp"
+                        android:src="@mipmap/check"
+                        android:visibility="invisible" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/textViewErrorInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/red"
+                    android:textSize="14sp" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/checkBoxConfirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="top"
+                    android:text="@string/reg_checkbox_1"
+                    android:textColor="@color/beige_color"
+                    app:buttonTint="@color/beige_color" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/checkBoxConfirm2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="top"
+                    android:text="@string/reg_checkbox_2"
+                    android:textColor="@color/beige_color"
+                    app:buttonTint="@color/beige_color" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/checkBoxConfirm3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="top"
+                    android:text="@string/reg_checkbox_3"
+                    android:textColor="@color/beige_color"
+                    app:buttonTint="@color/beige_color" />
+
+                <TextView
+                    android:id="@+id/buttonCreate"
+                    style="@style/EvrazTextViewButton"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="@string/create_account_activity_button" />
+
+
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

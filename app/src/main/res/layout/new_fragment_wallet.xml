@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bitshares.bitshareswallet.WalletFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_color"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- TODO: Update blank fragment layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/textTotalBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:gravity="center"
+                android:text="@string/main_activity_loading"
+                android:textColor="@color/colorAccentLight"
+                android:textSize="40sp" />
+
+            <TextView
+                android:id="@+id/textViewCurrency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="= 1,234,555 USD (0.9231 USD/BTS)"
+                android:textColor="@android:color/white"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+
+        <!-- <android.support.design.widget.TabLayout
+             android:id="@+id/tabLayout"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="@android:color/transparent"
+             android:layout_marginBottom="4dp"
+             app:tabIndicatorColor="@android:color/white"
+             app:tabMode="fixed"
+             app:tabSelectedTextColor="@android:color/white"
+             app:tabTextColor="@android:color/white" />-->
+    </LinearLayout>
+
+
+    <RadioGroup
+        android:id="@+id/viewPagerSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#474545"
+        android:checkedButton="@+id/balanceButton"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/balanceButton"
+            style="@style/EvrazCustomSwitchStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/balance" />
+
+        <RadioButton
+            android:id="@+id/sendButton"
+            style="@style/EvrazCustomSwitchStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send" />
+
+        <RadioButton
+            android:id="@+id/exchangeButton"
+            style="@style/EvrazCustomSwitchStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exchange" />
+    </RadioGroup>
+
+
+    <com.bitshares.bitshareswallet.NonScrollViewPager
+        android:id="@+id/fw_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+</LinearLayout>

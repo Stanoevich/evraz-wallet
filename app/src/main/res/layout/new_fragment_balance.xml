@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/balanceContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/buttonsContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread">
+
+        <TextView
+            style="@style/EvrazTitle"
+            android:text="@string/balance" />
+
+        <TextView
+            android:id="@+id/textTotalBalance"
+            style="@style/EvrazTitle"
+            android:layout_marginTop="8dp"
+            android:text="@string/main_activity_loading" />
+
+        <TextView
+            android:id="@+id/textViewCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="#f6efcc"
+            android:textSize="15sp"
+            tools:text="(123456,000 USD)" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonsContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/balanceContainer">
+
+        <TextView
+            android:id="@+id/portfolio"
+            style="@style/EvrazTextViewButton"
+            android:layout_marginBottom="16dp"
+            android:text="@string/portfolio" />
+
+        <TextView
+            android:id="@+id/openOrders"
+            style="@style/EvrazTextViewButton"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            android:text="@string/open_orders" />
+
+        <TextView
+            android:id="@+id/positionProvision"
+            style="@style/EvrazTextViewButton"
+            android:layout_marginBottom="16dp"
+            android:text="@string/position_provision"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/transactions"
+            style="@style/EvrazTextViewButton"
+            android:text="@string/transactions" />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

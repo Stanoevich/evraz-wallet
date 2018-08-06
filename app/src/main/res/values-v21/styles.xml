@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/background_color</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="preferenceTheme">@style/myPreferenceTheme</item>
+        <item name="android:statusBarColor">@color/background_color</item>
+
+        <!--<item name="android:alertDialogStyle">@style/MyOpaqueAlertDialog</item>-->
+    </style>
+
+<!--    <style name="MyOpaqueAlertDialog" parent="@android:style/Theme.Dialog.Alert">
+        <item name="android:background">#454545</item>
+        <item name="android:windowBackground">#454545</item>
+        <item name="android:popupBackground">#454545</item>
+    </style>-->
+</resources>

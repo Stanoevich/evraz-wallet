@@ -1,0 +1,187 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/background_color</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:fontFamily">@font/rosbank_sans_regular</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="preferenceTheme">@style/myPreferenceTheme</item>
+
+
+    </style>
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!--buttons color-->
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--title and message color-->
+        <item name="android:textColorPrimary">@color/table_gray_color</item>
+        <!--dialog background-->
+        <item name="android:windowBackground">@color/gray_color</item>
+
+    </style>
+
+
+
+    <style name="ActivityTheme" parent="AppTheme">
+        <item name="android:dialogTheme">@style/CustomDialogTheme</item>
+        <item name="android:alertDialogTheme">@style/CustomDialogTheme</item>
+        <item name="android:textColorAlertDialogListItem">@color/table_gray_color</item><!--special for ListPreference-->
+        <item name="android:textColorPrimary">@color/table_gray_color</item><!--special for ListPreference-->
+        <item name="android:textColorSecondary">@color/table_gray_color</item><!--special for ListPreference-->
+        <item name="android:windowBackground">@color/background_color</item>
+    </style>
+
+    <style name="SettingsActivityTheme" parent="ActivityTheme">
+
+
+        <item name="android:background">@color/gray_color</item><!--special for ListPreference-->
+        <!--  <item name="android:dialogPreferenceStyle">@style/CustomDialogTheme</item>
+          <item name="android:preferenceStyle">@style/CustomDialogTheme</item>
+          <item name="android:tabWidgetStyle"> @style/CustomDialogTheme</item>-->
+
+
+    </style>
+  <!--  <item name="android:textColorAlertDialogListItem">@color/table_gray_color</item>
+    <item name="colorControlActivated">@color/table_gray_color</item>-->
+    <style name="myPreferenceTheme" parent="@style/PreferenceThemeOverlay.v14.Material">
+
+    </style>
+
+    <style name="FullscreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@color/background_color</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <!--<item name="android:background">@color/blue_background</item>-->
+        <!--<item name="android:windowBackground">@drawable/background_gradient</item>-->
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/button_normal_selector</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ButtonLineStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/button_normal_2</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextHeaderViewStyle">
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">14sp</item>
+
+    </style>
+
+    <style name="Theme_Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="EvrazCustomSwitchStyle">
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@drawable/cusrom_switch_text_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:button">@null</item>
+        <item name="android:background">@drawable/custom_switch_item_background</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+    </style>
+
+    <style name="EvrazTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/beige_color</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="EvrazTextViewButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/btn_default_background_selector</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@color/beige_color</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="EvrazTextHeaderViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/beige_color</item>
+        <item name="android:textSize">15sp</item>
+
+    </style>
+
+    <style name="EvrazTextHeaderTableStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/beige_color</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="EvrazTextSellBuyTableStyle" parent="EvrazTextHeaderTableStyle">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="EvrazValueTableStyle" parent="EvrazTextHeaderTableStyle">
+        <item name="android:textColor">@color/table_gray_color</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="EvrazEditTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/edit_text_default_background</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:textColor">@color/beige_color</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:singleLine">true</item>
+    </style>
+</resources>
